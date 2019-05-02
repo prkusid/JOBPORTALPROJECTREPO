@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% extends "jobapp/indexcommon.html" %}
+
+{% block navbar_right1_block %}<a href="/accounts/logout"> Logout <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span></a>{% endblock%}
+
+{% block about_us_block %} <a href="/about_us2"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> ABOUT US</a> {% endblock %}
+
+{% block home_block %}<a href="/index"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> HOME</a>{% endblock %}
+
+{% block navbar_right2_block %}<a href="#" style="color:red;font-weight:800;border:solid 3px red; border-radius:50%;">{{user|upper}} </a>{% endblock%}
+
+  {% block index_block %}
+
+  {% if applied %}
+
+    <table>
+      <thead>
+        <th>COMPANY</th>
+        <th>DESIGNATION</th>
+        <th>DETAILS</th>
+      </thead>
+        {% for apply in applied %}
+          <tr>
+            <td>{{apply.company|upper}}</td>
+            <td>{{apply.designation|upper}}</td>
+            <td>&nbsp&nbsp&nbsp&nbsp<a href="/details/{{apply.company}}/{{apply.designation}}/{{apply.city}}" class="btn"> Details</a></td>
+
+          </tr>
+       {% endfor %}
+       </table>
+
+      {% else %}
+        <h2>not applied yet ....</h2><a href="/index" class="btn"> Apply</a>
+    {% endif %}
+
+
+
+
+
+
+
+
+
+
+  {% endblock %}

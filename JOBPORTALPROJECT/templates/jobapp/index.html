@@ -1,0 +1,61 @@
+<!DOCTYPE html
+{% extends 'jobapp/indexcommon.html' %}
+{% block navbar_right1_block %}<a href="/accounts/logout"> Logout <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span></a>{% endblock%}
+{% block about_us_block %} <a href="/about_us2"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> ABOUT US</a> {% endblock %}
+{% block home_block %}<a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> HOME</a>{% endblock %}
+{% block navbar_right3_block %} <a href="/applied"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Applied </a> {% endblock%}
+{% block navbar_right2_block %}<a href="#" style="color:red;font-weight:800;border:solid 3px red; border-radius:50%;">{{user|upper}} </a>{% endblock%}
+
+  {% block index_block %}
+
+  <h2 style="color:#42f4bf;">Hello!!!! {{user|upper}}</h2><hr>
+  <h1 style="border-bottom:9px #4e617c solid";><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search Cities</h1>
+
+  <form   method="post">
+    {% csrf_token %}
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="CITY,POST" name="search">
+      </div>
+      <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</button>
+    </form><br><br>
+<p>
+    {% if city %}
+
+          <table >
+            <thead>
+              <th>DATE</th>
+              <th>COMPANY</th>
+              <th>DESIGNATION</th>
+              <th>EMAIL</th>
+              <th>ADDRESS</th>
+              <th>&nbsp&nbsp&nbsp&nbsp Action</th>
+            </thead>
+            {% for job in city %}
+              <tr>
+                <td>{{job.date}}</td>
+                <td>{{job.company|upper}}</td>
+                <td>{{job.designation|upper}}</td>
+                <td>{{job.email|upper}}</td>
+                <td>{{job.address|upper}}</td>
+                <td>&nbsp&nbsp&nbsp&nbsp<a href="/apply/{{job.slug}}/{{job.designation}}/{{job.city}}" class="btn"> Apply</a></td>
+              </tr>
+              {% endfor %}
+          </table>
+
+    {% else %}
+      <h2 id = "thought">KEEP CALM !! U WILL GET JOB,BADE ARAM SE !!!!</h2>
+    {% endif %}
+</p>
+
+
+
+    {% endblock %}
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% extends "jobapp/indexcommon.html" %}
+
+{% block navbar_right1_block %}<a href="/accounts/logout"> Logout <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span></a>{% endblock%}
+
+{% block about_us_block %} <a href="/about_us2"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> ABOUT US</a> {% endblock %}
+
+{% block home_block %}<a href="/index"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> HOME</a>{% endblock %}
+
+{% block navbar_right2_block %}<a href="#" style="color:red;font-weight:800;border:solid 3px red; border-radius:50%;">{{user|upper}} </a>{% endblock%}
+
+  {% block index_block %}
+
+  {% for company in company_details %}
+
+      <h2 align = "center">{{company.company}}</h2><hr><br>
+      <h3>DESIGNATION : {{company.designation}}</h3>
+      <h3>EMAIL : {{company.email}}</h3>
+      <h3>ADDRESS : {{company.address}}</h3><br><hr>
+
+  {% endfor %}
+
+  {% for apply in applied %}
+<br>
+    <h3>DATE : {{apply.date}}</h3>
+    <h3>NAME : {{apply.name|upper}}</h3>
+    <h3>AGE  : {{apply.age}}</h3>
+    <h3>DEGREE : {{apply.degree|upper}}</h3>
+    <h3>COLLEGE : {{apply.college|upper}}</h3>
+    <h3>EMAIL : {{apply.email}}</h3>
+
+    {% endfor %}
+
+  {% endblock %}

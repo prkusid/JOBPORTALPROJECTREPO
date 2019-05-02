@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% extends "jobapp/indexcommon.html" %}
+{% block navbar_right1_block %}<a href="/accounts/logout"> Logout <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span></a>{% endblock%}
+{% block about_us_block %} <a href="/about_us2"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> ABOUT US</a> {% endblock %}
+
+{% block home_block %}<a href="/index"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> HOME</a>{% endblock %}
+{% block navbar_right3_block %} <a href="/applied"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Applied </a> {% endblock%}
+{% block navbar_right2_block %}<a href="#" style="color:red;font-weight:800;border:solid 3px red; border-radius:50%;">{{user|upper}} </a>{% endblock%}
+
+  {% block index_block %}
+
+
+      <h1 align="center">Fill Form Correctly...</h1><hr>
+          <form class="" method="post">
+            {% csrf_token %}
+              <input id="u" type="text" name="user" value="" hidden><br>
+
+              <label for="un">name :</label>
+              <input id="un" type="text" name="uname" placeholder="enter ur name"><br>
+
+              <label for="a">age :</label>
+              <input id="a" type="text" name="uage" placeholder="enter ur age"><br>
+
+              <label for="e">email :</label>
+              <input id="e" type="email" name="uemail" placeholder="enter ur email"><br>
+
+              <label for="d">degree :</label>
+              <input id="d" type="text" name="udegree" placeholder="enter ur degree" required><br>
+
+              <label for="c">college :</label>
+              <input id="d" type="text" name="ucollege" placeholder="enter ur college name" required><br>
+
+              <label for="r">resume :</label>
+              <input id="r" type="file" name="uresume" ><br>
+
+              <input id="c" type="text" name="ucompany" value="" hidden>
+
+              <input id="c" type="text" name="ucity" value="" hidden>
+
+              <input id="d" type="text" name="udesignation" value="" hidden><br>
+
+              <input type="submit" class="btn btn-warning" name="" value="submit" style="background:red;">
+
+
+          </form>
+
+
+
+  {% endblock %}

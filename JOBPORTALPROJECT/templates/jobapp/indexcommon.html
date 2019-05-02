@@ -1,0 +1,91 @@
+<!DOCTYPE html
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title_block %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "css/welcome.css" %}">
+
+
+    <style media="screen">
+    .cities{
+        color:red;
+        font-size:25px;
+      }
+      td{
+        width:350px;
+        height:100px;
+      }
+
+      #input{
+        background-color: red;
+        color:white;
+        width: 15%;
+        margin-top: 20px;
+        margin-left: 30%;
+      }
+
+
+    </style>
+
+  </head>
+  <body>
+
+    <img src="{% static "image/josh-spires-655941-unsplash.jpg" %}" alt="">
+
+
+    <nav class="navbar navbar-default ">
+<div class="container-fluid">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#" style="color:red;"><span class="glyphicon glyphicon-grain" aria-hidden="true"></span> VSPJOBS</a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <li>{% block home_block %}{% endblock %}</li>
+      <li>{% block about_us_block %}{% endblock %}</li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+
+
+      </li>
+
+      <li>{% block navbar_right2_block %} {% endblock%}</li>
+      <li>{% block navbar_right3_block %} {% endblock%}</li>
+      <li>{% block navbar_right1_block %} {% endblock%}</li>
+
+
+
+
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="jumbotron">
+
+      {% block index_block %}
+      {% endblock %}
+
+
+    </div>
+
+  </div>
+
+
+
+
+
+  </body>
+</html>
